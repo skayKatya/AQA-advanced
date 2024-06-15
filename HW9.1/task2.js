@@ -1,10 +1,10 @@
 let book = {
-    title: 'Cypress',
-    author: 'R',
-    year: 2024
-}
+	title: 'Cypress',
+	author: 'R',
+	year: 2024,
+};
 
-let {title, author} = book
+let { title, author } = book;
 
-console.log(title) 
-console.log(author)
+console.log(title);
+console.log(author);
