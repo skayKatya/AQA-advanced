@@ -1,16 +1,23 @@
 {
-  "name": "aqa-advanced",
-  "version": "1.0.0",
-  "description": "First project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "script1": "echo \"This is a message"
-  },
-  "author": "Kate",
-  "license": "ISC",
-  "dependencies": {
-    "chalk": "^5.3.0"
-  },
-  "type": "module"
+	"name": "aqa-advanced",
+	"version": "1.0.0",
+	"description": "First project",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"script1": "echo \"This is a message",
+		"prepare": "husky",
+		"lint": "npx eslint . --fix"
+	},
+	"author": "Kate",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^5.3.0"
+	},
+	"type": "module",
+	"devDependencies": {
+		"globals": "^15.4.0",
+		"husky": "^6.0.0",
+		"prettier": "3.3.2"
+	}
 }

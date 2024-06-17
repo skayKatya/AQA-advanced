@@ -1,11 +1,11 @@
 function testRecursiv(number) {
-    console.log(number)
+	console.log(number);
 
-   if (number <= 0){
-   return
-   }
+	if (number <= 0) {
+		return;
+	}
 
-testRecursiv(number - 1)
+	testRecursiv(number - 1);
 }
 
-console.log(testRecursiv(5))
+console.log(testRecursiv(5));
