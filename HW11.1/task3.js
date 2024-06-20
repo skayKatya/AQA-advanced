@@ -1,24 +1,45 @@
-let residents = [];
+let filmResponse = await fetch(`https://swapi.dev/api/films/3/`);
+let filmData = await filmResponse.json();
+let planetsUrls = filmData.planets;
 
-// Function to fetch residents from planets in a specific film
-async function fetchResidentsFromFilm(filmUrl) {
-	try {
-		// Fetch film data
-		const filmResponse = await fetch(filmUrl);
-		if (!filmResponse.ok) {
-			throw new Error('Failed to fetch film data');
-		}
-		const filmData = await filmResponse.json();
-		const planetUrls = filmData.planets; // Array of planet URLs in the film
+for (let i = 1; i < planetsUrls.length; i++) {
+	let data1 = await fetch(`https://swapi.dev/api/planets/${i}`)
+	let response = await data1.json();
+    let residentsUrls = response.residents;
+    let planetsNames = response.name
+    
+let residentsNames = [] 
+let residentsObj 
 
-		console.log(residents); // Log all fetched residents
-	} catch (error) {
-		console.error('Error fetching data:', error);
-	}
+for (let j = 1; j < residentsUrls.length; j++){
+    let data2 = await fetch(`https://swapi.dev/api/people/${j}`)
+    let people = await data2.json();
+    residentsNames.push(people.name)
+
+    residentsObj = {
+        planetsName: planetsNames,
+        residentsName: residentsNames
+    }
 }
 
-// Specify the film URL
-const filmUrl = 'https://swapi.dev/api/films/3/';
+console.log(residentsObj)
+}
 
-// Call the function to fetch residents from planets in the specified film
-fetchResidentsFromFilm(filmUrl);
+
+// const filmResponse = await fetch('https://swapi.dev/api/films/3')
+// const filmData = await filmResponse.json()
+// const planets = filmData.planets
+// planets.map(async (planet) => {
+//     const planetResponse = await fetch(planet)
+//     const planetData = await planetResponse.json()
+//     const residents = planetData.residents
+//     const residentNames = []
+//     residents.map(async (resident) => {
+//         const residentResponse = await fetch(resident)
+//         const residentData = await residentResponse.json()
+//         residentNames.push(residentData.name)
+//         if(residentNames.length === planetData.residents.length){
+//             console.log({planetData: planetData.name, residentNames: residentNames})
+//         }
+//     })  
+// })
